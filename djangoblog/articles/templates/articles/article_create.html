@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<div class="create-article">
-    <h2>create a new article</h2>
-</div>
-
+    <div class="create-article">
+        <h2>create a new article</h2>
+        <form action="{% url 'articles:create' %}" class="site-form" method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value='create'>
+        </form>
+    </div>
+    <script src="/static/slugify.js"></script>
 {% endblock %}
